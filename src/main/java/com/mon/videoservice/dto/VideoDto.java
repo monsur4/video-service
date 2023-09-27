@@ -1,16 +1,16 @@
 package com.mon.videoservice.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-@Builder
 public class VideoDto {
     private String name;
 
     private String[] tags;
 
-    private byte[] data;
+    private MultipartFile videoFile;
 }
