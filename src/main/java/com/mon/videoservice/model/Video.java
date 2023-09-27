@@ -1,9 +1,11 @@
 package com.mon.videoservice.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Table
 @Entity(name = "video")
+@Data
 public class Video {
 
     @Id
