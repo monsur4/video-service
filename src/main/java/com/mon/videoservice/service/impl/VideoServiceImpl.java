@@ -1,6 +1,7 @@
-package com.mon.videoservice.service;
+package com.mon.videoservice.service.impl;
 
 import com.mon.videoservice.dto.VideoDto;
+import com.mon.videoservice.service.VideoService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
