@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface VideoService {
 
-    List<VideoDto> fetchAllVideos();
+    List<VideoDto> fetchAllVideoNames();
 
     VideoDto fetchVideo(String name);
 
-    VideoDto addVideo(VideoDto videoDto);
+    VideoDto saveVideo(VideoDto videoDto);
 
     void deleteVideo(String name);
 }

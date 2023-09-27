@@ -1,15 +1,21 @@
 package com.mon.videoservice.service.impl;
 
 import com.mon.videoservice.dto.VideoDto;
+import com.mon.videoservice.repository.VideoRepository;
 import com.mon.videoservice.service.VideoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class VideoServiceImpl implements VideoService {
+
+    private final VideoRepository videoRepository;
+
     @Override
-    public List<VideoDto> fetchAllVideos() {
+    public List<VideoDto> fetchAllVideoNames() {
         return null;
     }
 
@@ -19,7 +25,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public VideoDto addVideo(VideoDto videoDto) {
+    public VideoDto saveVideo(VideoDto videoDto) {
         return null;
     }
 
