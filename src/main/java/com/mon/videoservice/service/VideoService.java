@@ -12,5 +12,5 @@ public interface VideoService {
 
     void saveVideo(VideoDto videoDto);
 
-    void deleteVideo(String name);
+    void deleteVideoByName(String name);
 }
