@@ -1,10 +1,12 @@
 package com.mon.videoservice.controller;
 
 import com.mon.videoservice.dto.ResponseDto;
+import com.mon.videoservice.dto.VideoDto;
 import com.mon.videoservice.service.VideoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,6 +22,13 @@ public class VideoController {
     public ResponseDto<List<String>> fetchAll(){
         return ResponseDto.wrapSuccessResponse(
                 videoService.fetchAllVideoNames()
+        );
+    }
+
+    @GetMapping("fetch")
+    public ResponseDto<VideoDto> fetch(@RequestParam("name") String name){
+        return ResponseDto.wrapSuccessResponse(
+                videoService.fetchVideo(name)
         );
     }
 }
