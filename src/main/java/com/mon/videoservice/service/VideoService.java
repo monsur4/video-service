@@ -10,7 +10,7 @@ public interface VideoService {
 
     VideoDto fetchVideo(String name);
 
-    VideoDto saveVideo(VideoDto videoDto);
+    void saveVideo(VideoDto videoDto);
 
     void deleteVideo(String name);
 }

@@ -1,6 +1,8 @@
 package com.mon.videoservice.service.impl;
 
 import com.mon.videoservice.dto.VideoDto;
+import com.mon.videoservice.exception.GenericException;
+import com.mon.videoservice.exception.VideoAlreadyExistsException;
 import com.mon.videoservice.exception.VideoNotFoundException;
 import com.mon.videoservice.model.Video;
 import com.mon.videoservice.repository.VideoRepository;
@@ -9,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Slf4j
@@ -39,8 +42,19 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public VideoDto saveVideo(VideoDto videoDto) {
-        return null;
+    public void saveVideo(VideoDto videoDto) {
+        if(videoRepository.existsByName(videoDto.getName()))
+            throw new VideoAlreadyExistsException();
+        try {
+            Video video = new Video();
+            video.setName(videoDto.getName());
+            video.setTags(videoDto.getTags());
+            video.setData(videoDto.getVideoFile().getBytes());
+            videoRepository.save(video);
+        }catch (IOException e){
+            log.error("error occurred when reading bytes from multipart file");
+            throw new GenericException();
+        }
     }
 
     @Override
