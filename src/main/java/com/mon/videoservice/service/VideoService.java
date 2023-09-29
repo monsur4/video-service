@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface VideoService {
 
-    List<VideoDto> fetchAllVideoNames();
+    List<String> fetchAllVideoNames();
 
     VideoDto fetchVideo(String name);
 
