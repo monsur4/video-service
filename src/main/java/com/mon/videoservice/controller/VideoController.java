@@ -4,16 +4,15 @@ import com.mon.videoservice.dto.ResponseDto;
 import com.mon.videoservice.dto.VideoDto;
 import com.mon.videoservice.service.VideoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/video")
 @RequiredArgsConstructor
+@Validated
 public class VideoController {
 
     private final VideoService videoService;
@@ -30,5 +29,10 @@ public class VideoController {
         return ResponseDto.wrapSuccessResponse(
                 videoService.fetchVideo(name)
         );
+    }
+
+    @PostMapping("save")
+    public void saveVideo(@RequestBody VideoDto videoDto){
+        videoService.saveVideo(videoDto);
     }
 }
