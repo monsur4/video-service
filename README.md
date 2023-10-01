@@ -11,4 +11,4 @@ This service acts as a backend service providing a rest api backend for a front-
 - Open your terminal and run ```mvn clean install``` in the root directory of the project
 - Start the application with the following command
   
-      java -jar target/target/video-service-0.0.1-SNAPSHOT.jar
+      java -jar target/video-service-0.0.1-SNAPSHOT.jar
