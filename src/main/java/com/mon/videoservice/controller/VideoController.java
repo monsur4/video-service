@@ -4,6 +4,9 @@ import com.mon.videoservice.dto.ResponseDto;
 import com.mon.videoservice.dto.VideoDto;
 import com.mon.videoservice.service.VideoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +28,9 @@ public class VideoController {
     }
 
     @GetMapping("fetch")
-    public ResponseDto<VideoDto> fetch(@RequestParam("name") String name){
-        return ResponseDto.wrapSuccessResponse(
-                videoService.fetchVideo(name)
+    public ResponseEntity<Resource> fetch(@RequestParam("name") String name){
+        return ResponseEntity.ok(
+                new ByteArrayResource(videoService.fetchVideo(name).getData())
         );
     }
 
