@@ -32,7 +32,7 @@ public class VideoController {
     }
 
     @PostMapping("save")
-    public void saveVideo(@RequestBody VideoDto videoDto){
+    public void saveVideo(@ModelAttribute VideoDto videoDto){
         videoService.saveVideo(videoDto);
     }
 }
