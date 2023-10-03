@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class VideoDto {
     private String name;
 
-    private String[] tags;
+    private String[] genre;
 
     private MultipartFile videoFile;
 

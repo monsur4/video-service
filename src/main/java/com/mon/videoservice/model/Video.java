@@ -16,7 +16,7 @@ public class Video {
     private String name;
 
     @Column(length = 1024)
-    private String[] tags;
+    private String[] genre;
 
     @Lob
     private byte[] data;
