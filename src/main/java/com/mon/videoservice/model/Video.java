@@ -15,7 +15,7 @@ public class Video {
     @Column(unique = true)
     private String name;
 
-    @Column
+    @Column(length = 1024)
     private String[] tags;
 
     @Lob
