@@ -36,7 +36,7 @@ public class VideoServiceImpl implements VideoService {
         Video video = videoRepository.findByName(name);
         return VideoDto.builder()
                 .name(video.getName())
-                .tags(video.getTags())
+                .genre(video.getGenre())
                 .data(video.getData())
                 .build();
     }
@@ -48,7 +48,7 @@ public class VideoServiceImpl implements VideoService {
         try {
             Video video = new Video();
             video.setName(videoDto.getName());
-            video.setTags(videoDto.getTags());
+            video.setGenre(videoDto.getGenre());
             video.setData(videoDto.getVideoFile().getBytes());
             videoRepository.save(video);
         }catch (IOException e){
