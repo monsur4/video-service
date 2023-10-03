@@ -4,6 +4,10 @@ A video streaming backend service
 ## Introduction
 This service acts as a backend service providing a rest api backend for a front-end service. It exposes a video streaming api.
 
+## Pre-cobfiguration
+- Install Java 21 (or 17 and update java.version in the pom file to reflect this change)
+- Install maven
+
 ## Configuration
 - Clone the repository
   
